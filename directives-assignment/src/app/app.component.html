@@ -13,9 +13,9 @@
       (click)="onDisplayDetails()">Display Details</button>
       <p *ngIf="detailsPush">This is a paragraph element</p>
       <hr>
-      <div *ngFor="let count of detailsLog"
-        [ngStyle]="{'background-color' : count >= 5 ? 'blue' : 'transparent'}"
-        [ngClass]="{afterFive : count >= 5}"
+      <div *ngFor="let count of detailsLog; let i = index"
+        [ngStyle]="{'background-color' : i >= 4 ? 'blue' : 'transparent'}"
+        [ngClass]="{afterFive : i >= 4}"
       > {{count}} </div>
     </div>
   </div>

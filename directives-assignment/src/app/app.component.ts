@@ -12,6 +12,7 @@ export class AppComponent {
 
   onDisplayDetails(){
     this.detailsPush = !this.detailsPush;
-    this.detailsLog.push(this.detailsLog.length + 1)
+    //this.detailsLog.push(this.detailsLog.length + 1)
+    this.detailsLog.push(new Date());
   }
 }
