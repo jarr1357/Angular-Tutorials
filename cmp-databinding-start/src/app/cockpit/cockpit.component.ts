@@ -1,3 +1,4 @@
+import { HtmlParser } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class CockpitComponent implements OnInit {
   @Output('sCreated') serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 
-  newServerName = '';
+  //newServerName = '';
   newServerContent = '';
 
   constructor() { }
@@ -18,11 +19,11 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddServer() {
-    this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
+  onAddServer(nameInput: HTMLInputElement) {
+    this.serverCreated.emit({serverName: nameInput.value, serverContent: this.newServerContent});
   }
 
-  onAddBlueprint() {
-    this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent})
+  onAddBlueprint(nameInput: HTMLInputElement) {
+    this.blueprintCreated.emit({serverName: nameInput.value, serverContent: this.newServerContent})
   }
 }
